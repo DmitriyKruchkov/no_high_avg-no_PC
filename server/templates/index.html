@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients List</title>
+</head>
+<body>
+    <h1>Clients List</h1>
+    <table border="1">
+        <tr>
+            <th>NAME</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for client in clients %}
+        {% if client.status %}
+        <tr>
+            <td>{{ client.name }}</td>
+            <td>Active</td>
+            <td>
+                <form method="get" action="/stop/{{ client.id }}">
+                    <button type="submit" style="background-color: red; color: white;"><b>ОН СЕГОДНЯ БЕЗ КОМПИКА</b></button>
+                </form>
+            </td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>
